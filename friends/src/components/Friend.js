@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { updateFriend } from '../actions/Actions'
+
 import "./friend.css";
 
 const Friend = (props) => {
@@ -16,4 +19,4 @@ const Friend = (props) => {
 
 }
 
-export default Friend;
+export default connect(null, { updateFriend })(Friend);

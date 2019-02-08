@@ -15,7 +15,8 @@
 
 .friend {
   border: 1px solid lightgrey;
-  width: 150px;
+  width: 193px;
+  border-radius: 5px;
 }
 
 .App-header {
