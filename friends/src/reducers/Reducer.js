@@ -1,7 +1,4 @@
-import { LOADING, SUCCESS, FAILURE, 
-         POST_SUCCESS, POST_FAILURE, 
-         UPDATE_FAILURE, UPDATE_SUCCESS,
-         DELETE_SUCCESS, DELETE_FAILURE } from "../actions/Actions";
+import { LOADING, SUCCESS, FAILURE, POST_SUCCESS, POST_FAILURE, UPDATE_FAILURE, UPDATE_SUCCESS, DELETE_SUCCESS, DELETE_FAILURE, SHOW_FORM, HIDE_FORM } from "../actions/Actions";
 
 const initialState = {
   friends: [],
@@ -53,6 +50,8 @@ export const Reducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingFriends: false,
+        updatingFriends: false,
+        friendUpdated: true,
         friends: action.payload
       }
       case DELETE_SUCCESS:
@@ -62,6 +61,22 @@ export const Reducer = (state = initialState, action) => {
         deletingFriend: false,
         friendDeleted: true,
         friends: action.payload
+      }
+      case SHOW_FORM:
+      return {
+        ...state,
+        updatingFriend: true,
+        fetchingFriends: false,
+        deletingFriend: false,
+        friendDeleted: false,
+        visible: false,
+        showId: action.payload
+      }
+      case HIDE_FORM:
+      return {
+        ...state,
+        visible: true,
+        updatingFriend: false
       }
       default:
       return state;

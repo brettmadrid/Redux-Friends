@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { hideForm, updateInfo } from '../actions/Actions'
 
 class UpdateFriend extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       friend: {
         name: "",
         age: "",
@@ -11,16 +13,16 @@ class UpdateFriend extends Component {
       }
     }
   }
+
   changeHandler = event => {
     event.preventDefault();
 
-    this.setState({friend: { ...this.state.friend, 
+    this.setState({friend: { ...this.state.friend,
       [event.target.name]: event.target.value}})
   }
   update = (e) => {
     e.preventDefault();
-    
-    this.props.updateFriend(this.state.friend)
+    this.props.updateInfo(this.state.friend, this.props.showId)
     this.setState({friend: {name: "", age: "", email: ""}})
   }
 
@@ -37,7 +39,7 @@ class UpdateFriend extends Component {
             <label htmlFor="email">Email:</label>
             <input type="email" name="email" id="email" value={this.state.friend.email} onChange={this.changeHandler}/>
             <input type="submit" value="Update Friend"/>
-            <input type="reset" value="Cancel" onClick={ () => this.props.hideForm()}/>
+            <input type="reset" value={`Cancel Update ${this.state.friend.name}`} onClick={ () => this.props.hideForm()}/>
           </fieldset>
         </form>
       </div>
@@ -45,4 +47,10 @@ class UpdateFriend extends Component {
   }
 }
 
-export default UpdateFriend;
+const mstp = state => {
+  return {
+    showId: state.showId
+  }
+}
+
+export default connect(mstp, { hideForm, updateInfo })(UpdateFriend);

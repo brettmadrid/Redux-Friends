@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { updateFriend } from '../actions/Actions'
 
 const Friend = (props) => {
   return (
@@ -11,9 +9,9 @@ const Friend = (props) => {
         <p>Email: {props.friend.email}</p>
       </div>
       <button type="button" onClick={ () => props.deleteFriend(props.friend.id)}>Remove</button>
-      {/* <button type="button" onClick={ () => props.showForm(props.friend.id)}>Update Info</button> */}
+      <button type="button" onClick={ () => props.showForm(props.friend.id)}>Update Info</button>
     </div>
   );
 }
 
-export default connect(null, { updateFriend })(Friend);
+export default Friend;

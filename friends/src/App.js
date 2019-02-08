@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import axios from "axios";
 import { connect } from 'react-redux';
-import { fetchFriends, postFriend, updateFriend, deleteFriend } from './actions/Actions'
+import { fetchFriends, postFriend, updateFriend, deleteFriend, showForm } from './actions/Actions'
 
 import Friend from "./components/Friend";
 import AddFriend from "./components/AddFriend";
@@ -16,13 +15,6 @@ class App extends Component {
     this.props.fetchFriends();
   }
 
-  // refresh = () => {
-  //   axios.get("http://localhost:5000/api/friends")
-  //   .then(response => console.log(response))
-  //     //this.setState({ friends: response.data }))
-  //   .catch(err => console.log(err));
-  // };
-
   postFriend = (friend) => {
     this.props.postFriend(friend);
   };
@@ -31,12 +23,12 @@ class App extends Component {
     this.props.deleteFriend(id);
   };
 
-  updateFriend = (friend, id) => {
-    this.props.updateFriend(friend, id)
-  };
+  // updateFriend = (friend, id) => {
+  //   this.props.updateFriend(friend, id)
+  // };
 
   showForm = id => {
-    //this.setState({ visible: false, showId: id });
+    this.props.showForm(id)
   };
   hideForm = e => console.log(e)
     //this.setState({ visible: true });
@@ -64,7 +56,7 @@ class App extends Component {
               <UpdateFriend
                 friends={this.props.friends}
                 hideForm={this.hideForm}
-                updateFriend={this.updateFriend}
+                // updateFriend={this.updateFriend}
               />
             )}
           />
@@ -90,4 +82,4 @@ const mstp = state => ({
   showId: state.showId
 })
 
-export default connect(mstp, { fetchFriends, postFriend, updateFriend, deleteFriend })(App)
+export default connect(mstp, { fetchFriends, postFriend, deleteFriend, showForm })(App)

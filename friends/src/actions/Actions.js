@@ -3,6 +3,8 @@ import axios from 'axios'
 export const LOADING = 'LOADING';
 export const SUCCESS = 'SUCCESS';
 export const FAILURE = 'FAILURE';
+export const SHOW_FORM = "SHOW_FORM";
+export const HIDE_FORM = "HIDE_FORM";
 export const POST_SUCCESS = "POST_SUCCESS";
 export const POST_FAILURE = "POST_FAILURE";
 export const UPDATE_SUCCESS = "POST_SUCCESS";
@@ -75,7 +77,7 @@ export function deleteFriend(id) {
   }
 }
 
-export function updateFriend(friend, id) {
+export function updateInfo(friend, id) {
   return (dispatch) => {
     dispatch ({ type: LOADING })
     axios
@@ -89,9 +91,23 @@ export function updateFriend(friend, id) {
       .catch( err => {
         dispatch({
           type: UPDATE_FAILURE,
-          payload: "UPdate failure..."
+          payload: "Update failure..."
         })
       })
-    
+  }
+}
+
+export function showForm(id) {
+  return (dispatch) => {
+      dispatch({
+        type: SHOW_FORM,
+        payload: id
+      })
+  }
+}
+
+export function hideForm() {
+  return (dispatch) => {
+    dispatch({ type: HIDE_FORM })
   }
 }
