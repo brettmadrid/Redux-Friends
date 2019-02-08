@@ -85,7 +85,7 @@ export function updateFriend(friend, id) {
           type: UPDATE_SUCCESS,
           payload: response.data
         })
-      }) 
+      })
       .catch( err => {
         dispatch({
           type: UPDATE_FAILURE,

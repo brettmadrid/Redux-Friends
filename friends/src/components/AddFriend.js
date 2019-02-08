@@ -38,8 +38,7 @@ class AddFriend extends Component {
             <input type="number" name="age" id="age" value={this.state.friend.age} onChange={this.changeHandler}/>
             <label htmlFor="email">Email:</label>
             <input type="email" name="email" id="email" value={this.state.friend.email} onChange={this.changeHandler}/>
-            <input type="submit" value="Add Friend"/>
-            <input type="reset" value="Clear"/>
+            <input type="submit" value="Add"/>
           </fieldset>
         </form>
       </div>

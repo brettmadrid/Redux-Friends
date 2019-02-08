@@ -1,22 +1,50 @@
-.App {
-  text-align: center;
+html {
+  background-image: url("blueback.jpg");
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.title {
+  font-family: 'Major Mono Display', monospace;
+  color: white;
 }
 
-.friends {
+fieldset {
+  font-family: Roboto;
+  border-radius: 10px;
+}
+
+fieldset legend {
+  color: white;
+}
+
+fieldset label { 
+  color: white;
+}
+
+fieldset input {
+  margin: 0 3% 0 1%;
+}
+
+#age {
+  width: 40px;
+}
+
+.friend-container {
+  color: white;
+  margin: 5% 0;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
 }
 
 .friend {
+  margin: 0 auto;
   border: 1px solid lightgrey;
-  width: 193px;
+  width: 250px;
   border-radius: 5px;
+}
+
+.friend-data {
+  font-size: .8rem;
 }
 
 .App-header {

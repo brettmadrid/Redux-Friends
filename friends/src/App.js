@@ -31,15 +31,8 @@ class App extends Component {
     this.props.deleteFriend(id);
   };
 
-  updateFriend = friend => {
-    axios.put(`http://localhost:5000/api/friends/${this.state.showId}`, friend)
-      .then(response => { console.log(response)
-        // this.refresh();
-        // this.setState({ visible: true });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  updateFriend = (friend, id) => {
+    this.props.updateFriend(friend, id)
   };
 
   showForm = id => {
@@ -51,7 +44,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Friends List</h1>
+        <h1 className="title">Friends List</h1>
         {this.props.visible ? (
           <Route
             exact
