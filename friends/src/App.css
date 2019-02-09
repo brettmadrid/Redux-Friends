@@ -1,0 +1,72 @@
+html {
+  background-image: url("blueback.jpg");
+}
+
+.title {
+  font-family: 'Major Mono Display', monospace;
+  color: white;
+}
+
+fieldset {
+  font-family: Roboto;
+  border-radius: 10px;
+}
+
+fieldset legend {
+  color: white;
+}
+
+fieldset label { 
+  color: white;
+}
+
+fieldset input {
+  margin: 0 3% 0 1%;
+}
+
+#age {
+  width: 40px;
+}
+
+.friend-container {
+  color: white;
+  margin: 5% 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.friend {
+  margin: 0 auto;
+  border: 1px solid lightgrey;
+  width: 250px;
+  border-radius: 5px;
+}
+
+.friend-data {
+  font-size: .8rem;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
